@@ -1,0 +1,38 @@
+name: Hugo CI/CD Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v3
+      with:
+        hugo-version: '0.115.0'
+
+    - name: Build Hugo site
+      run: hugo --minify
+
+    - name: Setup SSH key
+      uses: webfactory/ssh-agent@v0.8.1
+      with:
+        ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+
+    - name: Deploy to VPS
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "
+          set -e
+          mkdir -p /var/www/blog
+        "
+        rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -i ${{ secrets.VPS_SSH_KEY }}" public/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/blog/
+        ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "
+          sudo systemctl reload nginx
+        "
