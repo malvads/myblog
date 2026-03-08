@@ -43,6 +43,25 @@ This is where Assembly comes in. Assembly allowed humans to speak directly to th
 
 Learning Assembly forces you to think like the machine. It allows you to see the actual flow of memory and understand why deep recursion can cause a Stack Overflow, or why misusing the heap can crash your program.
 
+```asm
+section .text
+    global _start
+
+_start:
+    mov rax, 1        ; syscall: write
+    mov rdi, 1        ; stdout
+    mov rsi, msg      ; string address
+    mov rdx, 14       ; string length
+    syscall
+
+    mov rax, 60       ; syscall: exit
+    xor rdi, rdi
+    syscall
+
+section .data
+    msg db "Hello, Silicon", 0xA
+```
+
 {{< figure src="https://seanthegeek.net/assets/images/asm.webp" title="Figure 3: Assembly language: speaking directly to the silicon." >}}
 
 ### The Bridge Between Control and Readability
@@ -55,6 +74,25 @@ But mastering C is about more than syntax, it’s about understanding the Operat
 
 Furthermore, C brought the era of compilers with advanced optimizations. You no longer had to micromanage every CPU cycle by hand. A good C compiler analyzes your structural code and applies optimizations, like unrolling loops or reallocating registers, that would take a human weeks to perfect in Assembly. C gave us an intelligent tool that wrote ultra-optimized Assembly for us, provided we understood the underlying rules of the machine.
 
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // Direct control: allocating 4 bytes on the Heap
+    int *ptr = (int*)malloc(sizeof(int));
+    
+    if (ptr == NULL) return 1;
+
+    *ptr = 42; 
+    printf("Value %d stored at %p\n", *ptr, (void*)ptr);
+
+    // Fundamentals tell us we must free this manually
+    free(ptr); 
+    return 0;
+}
+```
+
 {{< figure src="https://studysection.com/blog/wp-content/uploads/2020/03/ken-thompson.jpg" title="Figure 4: Ken Thompson and Dennis Ritchie, the creators of Unix and C." >}}
 
 ### The Secret to Scalability
@@ -62,6 +100,24 @@ Furthermore, C brought the era of compilers with advanced optimizations. You no 
 Mastering the fundamentals also pushes you into key territory of data structures and algorithms. You don't need to be a math genius to write a script, but understanding this marks the difference between software that flies and software that crawls.
 
 When you know the basics, you understand the time and space complexity (Big O) of your code. You realize why putting a loop inside another loop—the dreaded O(n^2)—can sink your application's performance when you go from a hundred users to a hundred thousand. Mastering the fundamentals lets you know why optimizing that search to O(n) or O(log n) is the true magic of scalability.
+
+```python
+# O(n^2) - The 'Brute Force' approach
+def has_duplicates_slow(data):
+    for i in range(len(data)):
+        for j in range(len(data)):
+            if i != j and data[i] == data[j]:
+                return True
+    return False
+
+# O(n) - The 'Engineering' approach
+def has_duplicates_fast(data):
+    seen = set()
+    for x in data:
+        if x in seen: return True
+        seen.add(x)
+    return False
+```
 
 {{< figure src="https://substackcdn.com/image/fetch/$s_!xnoP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc126790b-4eee-466d-a402-6aa996c0efda_1686x1006.png" title="Figure 5: Algorithmic complexity: the difference between O(n) and O(n²)." >}}
 
@@ -72,6 +128,15 @@ Finally, Python or any other high-level language was born. Designed to be friend
 The true beauty of high-level languages like Python can only be appreciated when you have walked through Assembly, C, and algorithm theory.
 
 Only then do you understand why copying a giant list is computationally expensive, why dictionaries (Hash Maps) look up data so fast, and that your code runs on an interpreter written in C that manipulates the hardware without you even noticing.
+
+```python
+# Abstraction at its finest
+squares = {x: x**2 for x in range(10) if x % 2 == 0}
+
+# This single line triggers thousands of low-level 
+# instructions, memory allocations and syscalls.
+print(f"Result: {squares}")
+```
 
 {{< figure src="https://publish-01.obsidian.md/access/186a0d1b800fa85e50d49cb464898e4c/assets/code-cake.png" title="Figure 6: Infinite freedom built on solid foundations." >}}
 
