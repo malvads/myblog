@@ -1,5 +1,5 @@
 +++
-title = 'Sobre mí: El alma de la máquina'
+title = 'Sobre mí'
 description = 'Conoce a Miguel Alvarez, Ingeniero de Software en Red Hat y explorador de los sistemas de bajo nivel.'
 date = '2026-03-08T22:00:00.000Z'
 author = 'Miguel Alvarez'

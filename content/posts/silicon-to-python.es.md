@@ -33,8 +33,6 @@ Su equipo literalmente tejía instrucciones en memorias de núcleos magnéticos.
 
 En esa misma época, a nivel de máquina, miles de millones de pequeños interruptores (transistores tallados en silicio) se encendían y apagaban para crear puertas lógicas. Las puertas AND, OR y NOT eran los ladrillos fundamentales. Para los primeros programadores, cada instrucción y cada movimiento en memoria tenía que ser orquestado directamente sobre el hardware.
 
-[Image of basic logic gates AND, OR, NOT and their truth tables]
-
 {{< figure src="https://cdn.mos.cms.futurecdn.net/cbe73d3cf4d42b4e4eee172f68e8624b.jpg" title="Figura 2: Transistores de silicio, los bloques de construcción de la informática moderna." >}}
 
 ### Pensando como la Máquina
