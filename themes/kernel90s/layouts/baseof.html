@@ -223,7 +223,7 @@
 
   <div id="header">
     <div id="logo">
-      <a href="{{ .Site.BaseURL | relURL }}">{{ .Site.Title }}</a>
+      <a href="{{ " /" | relLangURL }}">{{ .Site.Title }}</a>
     </div>
     <div
       style="display: flex; justify-content: space-between; width: 100%; align-items: center; flex-wrap: wrap; gap: 20px;">
@@ -233,13 +233,15 @@
         {{ end }}
       </nav>
 
-      <div id="language-switcher"
-        style="display: flex; gap: 10px; font-size: 14px; font-weight: bold; border: 1px solid #000; padding: 5px 10px;">
-        {{ range .AllTranslations }}
-        <a href="{{ .Permalink }}"
-          style="text-decoration: none; color: #000; {{ if eq .Language $.Language }}border-bottom: 2px solid #000;{{ end }}">{{
-          .Language.LanguageName }}</a>
-        {{ end }}
+      <div id="language-switcher">
+        <select onchange="window.location.href=this.value"
+          style="font-family: inherit; font-size: 14px; font-weight: bold; border: 2px solid #000; padding: 5px 10px; background: #fff; cursor: pointer; outline: none;">
+          {{ range .AllTranslations }}
+          <option value="{{ .Permalink }}" {{ if eq .Language $.Language }}selected{{ end }}>
+            {{ .Language.LanguageName }}
+          </option>
+          {{ end }}
+        </select>
       </div>
     </div>
   </div>
