@@ -229,7 +229,7 @@
       style="display: flex; justify-content: space-between; width: 100%; align-items: center; flex-wrap: wrap; gap: 20px;">
       <nav id="menu">
         {{ range .Site.Menus.main }}
-        <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+        <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
         {{ end }}
       </nav>
 
