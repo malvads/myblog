@@ -29,6 +29,14 @@ Because of this, I didn't fit the mold in school. I was distinguished in Mathema
 
 This "bottom-up" learning style gave me a unique perspective. I don't just see a high-level API. I see the syscalls, the context switches, and the cache hits happening behind the scenes. For me, the real education happened at my desk, deconstructing the world one bit at a time.
 
+### You don't have to be like me
+
+I have been a complete engineering obsessive for as long as I can remember. Since I was a child, my mind has operated on a constant, relentless 24/7 cycle. I don't just "do" engineering, I live inside it.
+
+For me, reality is something that needs to be parsed. When I look at a piece of software, I’m not just seeing a UI or a feature, my brain is automatically tracing the execution path, calculating memory offsets, and imagining the syscalls happening in the background. It’s an involuntary process. This obsession means I’m never truly "off." I spend my days deconstructing systems in my head, and my nights are often consumed by the "white noise" of a complex problem.
+
+I’ve spent countless nights staring at a terminal, not because I had a deadline, but because a specific theoretical edge case or a subtle bug wouldn't let me sleep. There is a specific kind of internal pressure that only dissipates once I’ve reached the "core" of the logic. It's the only way I know how to exist. If you’re here looking for a casual perspective, you might find my approach a bit extreme, and that's okay.
+
 ### Why I'm writing this blog
 
 I have always been a tinkerer, the kind of person who can’t just use a tool without needing to understand exactly how it works under the hood. For me, the real beauty of technology isn't in the final product, but in the logic that holds it all together.
