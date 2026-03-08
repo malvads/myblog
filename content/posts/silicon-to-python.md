@@ -40,6 +40,10 @@ At that time, at the machine level, billions of tiny switches (transistors etche
 
 From those logic gates emerged registers, and around them formed digital circuits, ALUs, and microarchitectures.
 
+In this hierarchy, distance matters. Reading data from a register is not the same as looking for it on the disk. Understanding the memory pyramid is fundamental to writing code that doesn't choke waiting for data.
+
+{{< figure src="https://i.imgur.com/wt8p2tw.jpeg" title="Figure 3: The memory hierarchy: physical distance to the data defines the speed." >}}
+
 This is where Assembly comes in. Assembly language allowed humans to speak face-to-face with the CPU, telling it exactly which registers to use, when to move data, and how to manage the stack for functions or the heap for dynamic memory.
 
 Learning Assembly forces you to think like the machine itself. It opens your eyes to the actual flow of memory and makes you understand why uncontrolled recursion causes a Stack Overflow, or why poor heap management can make your program break everywhere.
@@ -63,17 +67,17 @@ section .data
     msg db "Hello, Silicon", 0xA
 ```
 
-{{< figure src="https://seanthegeek.net/assets/images/asm.webp" title="Figure 3: Assembly language: speaking directly to the silicon." >}}
+{{< figure src="https://seanthegeek.net/assets/images/asm.webp" title="Figure 4: Assembly language: speaking directly to the silicon." >}}
 
 ### The Bridge Between Control and Readability
 
 As systems became more complex, programming only in assembly became madness. Thus, C was born in the early 70s, by Dennis Ritchie.
 
-Although Unix was originally written in Assembly, Ritchie and Ken Thompson realized that to make it truly portable and manageable they needed a higher-level tool. C became the perfect bridge between raw machine instructions and human-readable code. It was the language chosen to rewrite Unix and, later, the basis for Linux and almost any modern operating system you use today.
+Although Unix was originally written in Assembly, Ritchie and Ken Thompson realized that to make it truly portable and manageable they needed a higher-level tool. C became the perfect bridge between raw machine instructions and human-readable code.
 
-But mastering C goes far beyond syntax, it is about understanding the Operating System (OS). Between your code and the silicon lives the Kernel, the supreme resource manager. When you write a file or send a packet over the network, you are not just calling a function, you are launching a System Call. Understanding how the OS manages processes, threads, and memory protection is what separates a developer who just "slings scripts" from an engineer who builds stable systems.
+But mastering C goes far beyond syntax, it is about understanding the Operating System (OS). Between your code and the silicon lives the Kernel, the supreme resource manager. When you write a file or send a packet over the network, you are not just calling a function, you are launching a System Call.
 
-Furthermore, C brought the era of compilers with advanced optimizations. There was no longer a need to micromanage every CPU cycle by hand. A good compiler analyzes your code and applies optimizations, like loop unrolling or register reallocation, that would take a human weeks to polish in assembly. We have an intelligent tool that writes ultra-optimized Assembly for us, provided we know how to play by the machine's rules.
+This is where robustness is put to the test. A true engineer never assumes that resources are infinite. Before touching the memory, we always verify.
 
 ```c
 #include <stdio.h>
@@ -83,7 +87,11 @@ int main() {
     // Full control: reserving 4 bytes on the Heap
     int *ptr = (int*)malloc(sizeof(int));
     
-    if (ptr == NULL) return 1;
+    // Always checks if the system returned memory
+    if (ptr == NULL) {
+        fprintf(stderr, "Error: Memory allocation failed\n");
+        return 1;
+    }
 
     *ptr = 42; 
     printf("Value %d stored at %p\n", *ptr, (void*)ptr);
@@ -94,13 +102,15 @@ int main() {
 }
 ```
 
-{{< figure src="https://studysection.com/blog/wp-content/uploads/2020/03/ken-thompson.jpg" title="Figure 4: Ken Thompson and Dennis Ritchie, the creators of Unix and C." >}}
+{{< figure src="https://studysection.com/blog/wp-content/uploads/2020/03/ken-thompson.jpg" title="Figure 5: Ken Thompson and Dennis Ritchie, the creators of Unix and C." >}}
+
+Today, this control has evolved. Languages like **Rust** have recovered these fundamentals (like strict memory management and ownership) to give us the safety that C could not guarantee by design, preventing memory errors before the code even runs.
 
 ### The Secret to Scalability
 
 Mastering the fundamentals also gets you right into the territory of data structures and algorithms. You don't need to be a math genius to sling code, but understanding this marks the difference between software that flies and software that crawls.
 
-When you know the basics, you understand the time and space complexity (Big O) of what you write. You realize why nesting a loop inside another (the dreaded $O(n^2)$) can sink your application's performance when you go from a hundred users to a hundred thousand. Knowing how to optimize that search to $O(n)$ or $O(\log n)$ is the true magic of scalability.
+When you know the basics, you understand the time and space complexity (Big O) of what you write. You realize why nesting a loop inside another (the dreaded $O(n^2)$) can sink your application's performance when you go from a hundred users to a hundred thousand. Knowing how to optimize that search is the true magic of scalability.
 
 ```python
 # O(n^2) - Brute Force
@@ -120,13 +130,15 @@ def has_duplicates_fast(data):
     return False
 ```
 
-{{< figure src="https://substackcdn.com/image/fetch/$s_!xnoP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc126790b-4eee-466d-a402-6aa996c0efda_1686x1006.png" title="Figure 5: Algorithmic complexity: the difference between O(n) and O(n²)." >}}
+{{< figure src="https://substackcdn.com/image/fetch/$s_!xnoP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc126790b-4eee-466d-a402-6aa996c0efda_1686x1006.png" title="Figure 6: Data structures and algorithms: the difference between O(n) and O(n²)." >}}
 
 ### The Freedom of Abstraction
 
 And finally we come to Python or any high-level language. Designed to be friendly and expressive, they hide the registers, abstract the stack, and manage memory for you.
 
-The true beauty of these languages is only appreciated when you have walked through the mud of Assembly, the rigidity of C, and the theory of algorithms. Only then do you understand why copying a giant list is computationally expensive, why dictionaries (Hash Maps) are so fast, and you are aware that your code runs on an interpreter written in C that manipulates the hardware without you even noticing.
+The true beauty of these languages is only appreciated when you have walked through the mud of Assembly, the rigidity of C, and the theory of algorithms. But beware, that freedom comes at a price. In high-concurrency or low-latency systems, Python's abstractions can work against you if you don't understand what is happening underneath (like the Garbage Collector or the GIL).
+
+Only then do you understand why copying a giant list is expensive, why dictionaries are fast, and you are aware that your code runs on an interpreter written in C that manipulates the hardware for you.
 
 ```python
 # Abstraction in its purest form
@@ -137,7 +149,7 @@ squares = {x: x**2 for x in range(10) if x % 2 == 0}
 print(f"Result: {squares}")
 ```
 
-{{< figure src="https://publish-01.obsidian.md/access/186a0d1b800fa85e50d49cb464898e4c/assets/code-cake.png" title="Figure 6: Infinite freedom built on solid foundations." >}}
+{{< figure src="https://publish-01.obsidian.md/access/186a0d1b800fa85e50d49cb464898e4c/assets/code-cake.png" title="Figure 7: Infinite freedom built on solid foundations." >}}
 
 ### Why the Fundamentals Make You Build Better Software
 
@@ -145,4 +157,4 @@ Skipping these steps is like living in a bubble. You may be able to push data in
 
 When you know the fundamentals, you stop guessing. Debugging becomes an exercise in precision because you know exactly where to look when something fails under the hood. Optimization begins to make sense because you understand the actual work of the compiler, the physical limitations of the CPU, and the real cost of your algorithmic choices. More importantly, this knowledge allows you to design robust systems that scale gracefully without breaking, applying the same engineering rigor that Margaret Hamilton's team used to take us to the Moon.
 
-In short: Assembly teaches you the machine, C and compilers give you control, algorithms provide efficiency, and Python gives you freedom. It doesn't matter if you never set foot in a computer science faculty, if you decide to learn the whole story and master these concepts inside and out, your perspective will completely change. You will stop being someone who just "slings code" to become a true Software Engineer.
+In short: Assembly teaches you the machine, C and compilers give you control, algorithms provide efficiency, and Python gives you freedom. It doesn't matter if you never set foot in a computer science faculty, if you decide to learn the whole story and master these basics inside and out, your perspective will completely change. You will stop being someone who just "slings code" to become a true Software Engineer.
