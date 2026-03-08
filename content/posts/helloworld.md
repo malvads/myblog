@@ -15,7 +15,7 @@ relative = true
 
 +++
 
-Hey! 👋 
+Hey! 👋 Welcome.
 
 This is the very first article of my blog. Here I will be sharing content about software development, technology, projects I'm working on, and anything I find interesting.
 
