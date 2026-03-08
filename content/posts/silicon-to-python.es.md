@@ -1,5 +1,5 @@
 +++
-title = 'Por qué dominar los fundamentos de la Ingeniería de Software te hace mejor ingeniero'
+title = 'Por qué dominar los fundamentos de las Ciencias de la computación te hace mejor ingeniero de software'
 description = 'Una inmersión profunda en por qué los fundamentos de bajo nivel son la clave para convertirte en un mejor ingeniero.'
 tags = ['Ingeniería', 'Bajo Nivel', 'Fundamentos CS']
 date = '2026-03-08T19:10:00.000Z'
