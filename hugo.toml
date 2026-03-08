@@ -140,10 +140,6 @@ series = "series"
 
 
 [[params.profileMode.buttons]]
-name = "Archives"
-url = "/archives/"
-
-[[params.profileMode.buttons]]
 name = "Categories"
 url = "/posts/"
 
@@ -157,12 +153,6 @@ identifier = "about"
 name = "About"
 url = "/about/"
 weight = 1
-
-[[languages.en.menu.main]]
-identifier = "archives"
-name = "Archives"
-url = "/archives/"
-weight = 20
 
 [[languages.en.menu.main]]
 identifier = "tags"
@@ -191,12 +181,6 @@ identifier = "about"
 name = "Sobre mí"
 url = "/about/"
 weight = 1
-
-[[languages.es.menu.main]]
-identifier = "archives"
-name = "Archivo"
-url = "/archives/"
-weight = 20
 
 [[languages.es.menu.main]]
 identifier = "tags"
