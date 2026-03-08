@@ -174,6 +174,11 @@ name = "Search"
 url = "/search/"
 weight = 50
 
+[languages.en]
+languageName = "English"
+contentDir = "content"
+weight = 1
+
 [languages.es]
 languageName = "Español"
 title = "Blog de Ingeniería de Malvads"
