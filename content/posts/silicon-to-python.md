@@ -73,7 +73,7 @@ The true beauty of high-level languages like Python can only be appreciated when
 
 Only then do you understand why copying a giant list is computationally expensive, why dictionaries (Hash Maps) look up data so fast, and that your code runs on an interpreter written in C that manipulates the hardware without you even noticing.
 
-{{< figure src="https://www.freecodecamp.org/news/content/images/2022/01/python-logo.png" title="Figure 6: Python: infinite freedom built on solid C foundations." >}}
+{{< figure src="https://publish-01.obsidian.md/access/186a0d1b800fa85e50d49cb464898e4c/assets/code-cake.png" title="Figure 6: Infinite freedom built on solid foundations." >}}
 
 ### Why the Fundamentals Make You Build Better Software
 
