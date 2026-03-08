@@ -234,8 +234,7 @@
       </nav>
 
       <div id="language-switcher">
-        <select
-          onchange="localStorage.setItem('pref-lang', this.value); window.location.href=(this.value === 'en' ? '/' : '/' + this.value + '/')"
+        <select onchange="localStorage.setItem('pref-lang', this.value); window.location.href='/' + this.value + '/'"
           style="font-family: inherit; font-size: 14px; font-weight: bold; border: 2px solid #000; padding: 5px 10px; background: #fff; cursor: pointer; outline: none;">
           {{ $currentLang := .Language.Lang }}
           {{ range .Site.Languages }}
@@ -254,7 +253,7 @@
       const currentPath = window.location.pathname;
       const isRoot = currentPath === '/' || currentPath === '/index.html';
 
-      if (isRoot && prefLang && prefLang !== '{{ .Site.Language.Lang }}') {
+      if (isRoot && prefLang) {
         window.location.href = '/' + prefLang + '/';
       }
     })();

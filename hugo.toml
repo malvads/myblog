@@ -6,6 +6,7 @@ enableEmoji = true
 enableInlineShortcodes = true
 enableRobotsTXT = true
 defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
 disableHugoGeneratorInject = true
 summaryLength = 70
 hasCJKLanguage = true
