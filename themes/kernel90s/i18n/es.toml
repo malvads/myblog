@@ -12,3 +12,6 @@ other = "<< Volver al inicio"
 
 [tags]
 other = "Etiquetas"
+
+[source_code_cta]
+other = "¿Quieres ver el código fuente?"
