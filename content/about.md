@@ -31,11 +31,15 @@ This "bottom-up" learning style gave me a unique perspective. I don't just see a
 
 ### You don't have to be like me
 
-I have been a complete engineering obsessive for as long as I can remember. Since I was a child, my mind has operated on a constant, relentless 24/7 cycle. I don't just "do" engineering, I live inside it.
+I’ve been obsessed with engineering for as long as I can remember. It started when I was a kid and it never really switched off. My brain just runs that way all the time.
 
-For me, reality is something that needs to be parsed. When I look at a piece of software, I’m not just seeing a UI or a feature, my brain is automatically tracing the execution path, calculating memory offsets, and imagining the syscalls happening in the background. It’s an involuntary process. This obsession means I’m never truly "off." I spend my days deconstructing systems in my head, and my nights are often consumed by the "white noise" of a complex problem.
+When I look at software, I’m not only seeing the interface or the feature someone intended. My mind immediately starts following the execution path. I picture what the program is doing underneath, where the memory is going, what calls are being made, how the system is actually handling it. It’s not something I consciously decide to do. It just happens.
 
-I’ve spent countless nights staring at a terminal, not because I had a deadline, but because a specific theoretical edge case or a subtle bug wouldn't let me sleep. There is a specific kind of internal pressure that only dissipates once I’ve reached the "core" of the logic. It's the only way I know how to exist. If you’re here looking for a casual perspective, you might find my approach a bit extreme, and that's okay.
+Because of that, I’m almost never “off.” During the day I catch myself mentally taking systems apart, piece by piece. At night it’s even worse. If there’s a problem that feels unresolved, some strange edge case or a bug that doesn’t quite make sense, it stays in my head like background noise.
+
+I’ve lost plenty of nights to a terminal window, not because of a deadline, because something about the logic kept bothering me. There’s this pressure that builds when a system doesn’t fully make sense yet. The only way it goes away is when I finally reach the center of it and everything clicks.
+
+That’s just how my brain works. If someone is looking for a relaxed or casual relationship with engineering, my way of approaching it probably sounds a bit intense. But for me, it’s the only way I know how to think.
 
 ### Why I'm writing this blog
 
