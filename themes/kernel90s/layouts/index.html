@@ -1,20 +1,22 @@
 {{ define "main" }}
-<h2>Latest Updates</h2>
-<table style="width: 100%; border-collapse: collapse; text-align: left;">
-    <thead>
-        <tr style="border-bottom: 2px solid #00ff00;">
-            <th style="padding: 10px 5px; width: 30%;">Date</th>
-            <th style="padding: 10px 5px;">Title</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{ range (where .Site.RegularPages "Type" "in" .Site.Params.mainsections).ByDate.Reverse | first 10 }}
-        <tr style="border-bottom: 1px solid #1a1a1a;">
-            <td style="padding: 10px 5px;">{{ .Date.Format "2006-01-02" }}</td>
-            <td style="padding: 10px 5px;"><a href="{{ .Permalink }}" style="text-decoration: none;"> > {{ .Title }}</a>
-            </td>
-        </tr>
-        {{ end }}
-    </tbody>
-</table>
+<section>
+    <h2>Latest Updates</h2>
+    <table style="width: 100%; border-collapse: collapse; text-align: left; margin-top: 20px;">
+        <thead>
+            <tr style="border-bottom: 2px solid #000;">
+                <th style="padding: 10px 5px; width: 30%;">Date</th>
+                <th style="padding: 10px 5px;">Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ range (where .Site.RegularPages "Type" "in" .Site.Params.mainsections).ByDate.Reverse | first 10 }}
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 12px 5px; font-size: 0.9em; color: #666;">{{ .Date.Format "2006-01-02" }}</td>
+                <td style="padding: 12px 5px;"><a href="{{ .Permalink }}"
+                        style="text-decoration: none; color: #000; font-weight: bold;">{{ .Title }}</a></td>
+            </tr>
+            {{ end }}
+        </tbody>
+    </table>
+</section>
 {{ end }}
