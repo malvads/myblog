@@ -27,7 +27,7 @@ Margaret Hamilton, director of the team that programmed the Apollo flight comput
 
 Her team literally wove instructions into magnetic core memory. They knew the hardware so thoroughly that they built an asynchronous system capable of prioritizing tasks. When the lunar module's computer was overloaded with radar data three minutes before landing on the moon, the system didn't crash. Thanks to those low-level fundamentals, the software knew to ignore secondary tasks and focus 100% on keeping the ship stable. That is software engineering at its finest.
 
-{{< figure src="https://th-thumbnailer.cdn-si-edu.com/FWgRn5hYAspLDtzVakRB5pQxQMY=/fit-in/1600x0/filters:focal(939x447:940x448)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/c6/1f/c61f96b5-8da2-4715-a792-e3e6bda15714/margaret_hamilton_-_restoration.jpg" title="Figure 1: Margaret Hamilton next to the Apollo Guidance Computer source code." >}}
+{{< figure src="https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/201608/margaret-hamilton-mit-apollo-code_0.jpg?itok=gcN5sX1_" title="Figure 1: Margaret Hamilton next to the Apollo Guidance Computer source code." >}}
 
 ### When Hardware Dictated the Rules
 

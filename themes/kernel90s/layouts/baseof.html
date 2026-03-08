@@ -159,6 +159,32 @@
       font-style: italic;
     }
 
+    /* Figure styling for centering and size consistency */
+    figure {
+      margin: 40px auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    figure img {
+      max-width: 100%;
+      height: auto;
+      max-height: 500px;
+      border: 1px solid #eee;
+      display: block;
+      margin: 0 auto;
+    }
+
+    figcaption {
+      margin-top: 15px;
+      font-size: 0.8em;
+      color: #666;
+      font-style: italic;
+    }
+
     /* Responsive adjustments for phones */
     @media (max-width: 768px) {
       body {
