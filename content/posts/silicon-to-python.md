@@ -1,5 +1,5 @@
 +++
-title = 'Why University Matters: Why Mastering Software Engineering Fundamentals Makes You a True Engineer'
+title = 'Why Mastering Software Engineering Fundamentals Makes You a Better Engineer'
 description = 'A deep dive into why low-level fundamentals are the key to becoming a better engineer.'
 tags = ['Engineering', 'Low-Level', 'CS Fundamentals']
 date = '2026-03-08T19:10:00.000Z'
