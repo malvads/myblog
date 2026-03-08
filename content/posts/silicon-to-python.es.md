@@ -120,7 +120,7 @@ def tiene_duplicados_rapido(datos):
     return False
 ```
 
-{{< figure src="https://substackcdn.com/image/fetch/$s_!xnoP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc126790b-4eee-466d-a402-6aa996c0efda_1686x1006.png" title="Figura 5: Complejidad algorítmica: la diferencia entre O(n) y O(n²)." >}}
+{{< figure src="https://substackcdn.com/image/fetch/$s_!xnoP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc126790b-4eee-466d-a402-6aa996c0efda_1686x1006.png" title="Figura 5: Estructuras de datos y algoritmos" >}}
 
 ### La Libertad de la Abstracción
 
