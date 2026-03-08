@@ -173,3 +173,32 @@ weight = 30
 name = "Search"
 url = "/search/"
 weight = 50
+
+[languages.es]
+languageName = "Español"
+title = "Blog de Ingeniería de Malvads"
+contentDir = "content"
+weight = 2
+
+[[languages.es.menu.main]]
+identifier = "about"
+name = "Sobre mí"
+url = "/about/"
+weight = 1
+
+[[languages.es.menu.main]]
+identifier = "archives"
+name = "Archivo"
+url = "/archives/"
+weight = 20
+
+[[languages.es.menu.main]]
+identifier = "tags"
+name = "Etiquetas"
+url = "/tags/"
+weight = 30
+
+[[languages.es.menu.main]]
+name = "Buscar"
+url = "/search/"
+weight = 50

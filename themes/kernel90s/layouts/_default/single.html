@@ -2,9 +2,9 @@
 <h1>{{ .Title }}</h1>
 {{ if .Date }}
 <div class="post-meta">
-    Date: {{ .Date.Format "2006-01-02" }}
+    {{ T "date" }}: {{ .Date.Format "2006-01-02" }}
     {{ if .Params.tags }}
-    | Tags:
+    | {{ T "tags" }}:
     {{ range .Params.tags }}
     <a href="{{ " /tags/" | relURL }}{{ . | urlize }}" style="text-decoration:none">[{{ . }}]</a>
     {{ end }}
@@ -17,5 +17,5 @@
 </div>
 
 <hr>
-<a href="{{ .Site.BaseURL | relURL }}">&lt;&lt; Back home</a>
+<a href="{{ .Site.BaseURL | relURL }}">{{ T "back_home" }}</a>
 {{ end }}
