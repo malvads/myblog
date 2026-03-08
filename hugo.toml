@@ -9,15 +9,16 @@ defaultContentLanguage = "en"
 disableHugoGeneratorInject = true
 summaryLength = 70
 hasCJKLanguage = true
-theme = ["PaperMod"]
-title = "MY BLOG"
+theme = ["kernel90s"]
+title = "Malvads Engineering Blog"
 mainsections = ["posts"]             
 
 [pagination]
 pagerSize = 20
 
 [markup.highlight]
-noClasses = false
+noClasses = true
+style = "monokai"
 
 [markup.goldmark.renderer]
 unsafe = false
@@ -32,7 +33,7 @@ home = ["HTML", "RSS", "JSON"]
 [params]
 displayFullLangName = true
 defaultTheme = "auto"
-keywords = ["HugoNest", "Hugo","Mobile", "App","Hugo Android","Hugo iPhone"]
+keywords = ["Miguel Alvarez", "Blog", "Low-Level Programming", "Systems", "Reverse Engineering", "Algorithms", "AI"]
 ShowAllPagesInArchive = true
 ShowPageNums = true
 ShowBreadCrumbs = true
@@ -45,9 +46,9 @@ ShowShareButtons = true
 UseHugoToc = true
 hideFooter = false
 ShowFullTextinRSS = true
-author = "HugoNest"
-comments = false
-description = "Efficiently manage your Hugo static site anytime, anywhere. HugoNest offers seamless mobile Markdown editing, reliable AI Powered Git integration, and offline support—the ideal mobile companion for Hugo developers and content creators."
+author = "Miguel Alvarez"
+comments = true
+description = "I'm an Engineer at @RedHat. I love diving into Low-Level Programming, Systems, Reverse Engineering, Algorithms, and AI. I break systems to understand them."
 disableScrollToTop = false
 disableSpecial1stPost = false
 disableThemeToggle = false
@@ -61,19 +62,19 @@ social = true
  
 [[params.socialIcons]]
 name = "email"
-url = "mailto:HugoNest@xgdebug.com"
+url = "mailto:hola@malvads.com"
 
 [[params.socialIcons]]
 name = "github"
-url = "https://github.com/HugoNest"
+url = "https://github.com/malvads"
 
 [[params.socialIcons]]
 name = "twitter"
-url = "https://x.com/hugonestapp"
+url = "https://x.com/malvads__"
 
 [[params.socialIcons]]
 name = "link"
-url = "https://hugonest.github.io/"
+url = "https://malvads.com/"
 
 [params.assets]
 apple_touch_icon = "/images/apple-touch-icon.png"
@@ -90,8 +91,8 @@ hiddenInList = false
 hiddenInSingle = false
 
 [params.editPost]
-Text = "Suggest Changes"
-URL = "https://github.com/HugoNest/content"
+Text = "Sugerir Cambios"
+URL = "https://github.com/malvads/myblog/content"
 appendFilePath = true
 disabled = true
 
@@ -115,9 +116,9 @@ enabled = true
 imageHeight = 120
 imageWidth = 120
 imageUrl = "/images/avatar.png"
-imageTitle = "HugoNest"
-title = """#### Manage Your Blog Anywhere, Anytime. """
-subtitle = " Take full control of your Hugo static site with HugoNest, the mobile app designed specifically for Hugo. Write, edit, preview, and deploy content seamlessly from anywhere, complete with Git sync and AI-powered writing assistance—all on your phone.  "
+imageTitle = "Miguel Alvarez"
+title = """#### Miguel Alvarez"""
+subtitle = "I'm an Engineer at @RedHat. I love diving into Low-Level Programming, Systems, Reverse Engineering, Algorithms, and AI. I break systems to understand them."
 
 [params.analytics.bing]
 SiteVerificationTag = ""
@@ -151,9 +152,9 @@ url = "/recent/"
 
 
 [[languages.en.menu.main]]
-identifier = "link"
-name = "Download"
-url = "https://hugonest.github.io/"
+identifier = "about"
+name = "About"
+url = "/about/"
 weight = 1
 
 [[languages.en.menu.main]]

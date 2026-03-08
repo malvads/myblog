@@ -1,13 +1,13 @@
 +++
-title = 'Helloworld'
-description = ''
-tags = ['HugoNest']
-date = '2025-03-27T10:21:34.000Z'
+title = 'Welcome to my new blog'
+description = 'My first article in this space.'
+tags = ['General', 'Welcome']
+date = '2026-03-08T16:00:00.000Z'
 draft = false
-categories = []
+categories = ['General']
 series = []
-author = 'HugoNest'
-keywords = []
+author = 'Miguel Alvarez'
+keywords = ['Blog', 'First Post']
 
 [cover]
 image = ""
@@ -15,4 +15,8 @@ relative = true
 
 +++
 
-hello world!
+Hey! 👋 
+
+This is the very first article of my blog. Here I will be sharing content about software development, technology, projects I'm working on, and anything I find interesting.
+
+Hope you enjoy reading and don't hesitate to reach out!
