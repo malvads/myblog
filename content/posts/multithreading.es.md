@@ -20,19 +20,19 @@ Hoy vamos a explorar el mundo de la **concurrencia** y el **paralelismo**. Si al
 
 ### Hardware Threads vs. Software Threads
 
-Imagina que los **Hardware Threads** son los **cocineros físicos** que tienes en la cocina (los núcleos lógicos de tu CPU). Si tu procesador tiene 8 hilos, tienes 8 pares de manos trabajando.
+Imagina que los **Hardware Threads** son los **cocineros físicos** que tienes en la cocina (los núcleos lógicos de tu CPU). Es importante distinguir entre un *núcleo físico* (la unidad real de cómputo) y un *hilo lógico* (tecnologías como SMT o Hyperthreading que permiten que un núcleo parezca dos para el sistema). Si tu procesador tiene 8 hilos, tienes 8 pares de manos trabajando.
 
-Por otro lado, los **Software Threads** son las **tareas anotadas en comandas**. Un solo cocinero (hardware thread) puede estar a cargo de varias comandas (software threads). El sistema operativo hace un **Context Switch** (cambio de contexto), el cocinero deja de picar cebolla un segundo para remover la sopa y luego vuelve a la cebolla. A ojos del cliente, parece que está haciendo ambas cosas a la vez, pero en realidad está alternando rápidamente entre ellas (¿mágico verdad?).
+Por otro lado, los **Software Threads** son las **tareas anotadas en comandas**. En la mayoría de los sistemas modernos, estos son hilos del Kernel (o mapeados a ellos). Un solo cocinero (hardware thread) puede estar a cargo de varias comandas (software threads). El **Planificador (Scheduler)** del sistema operativo hace un **Context Switch** (cambio de contexto): el cocinero deja de picar cebolla un segundo para remover la sopa y luego vuelve a la cebolla. A ojos del cliente, parece que está haciendo ambas cosas a la vez, pero en realidad está alternando rápidamente.
 
 {{< figure src="https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/images/Chapter4/4_01_ThreadDiagram.jpg" title="Figura 1: Diagrama de hilos y procesos en el sistema operativo." >}}
 
 ### El GIL y el GVL
 
-En lenguajes como **Python (CPython)** o **Ruby (MRI)**, existe un personaje muy estricto, el **GIL (Global Interpreter Lock)**. 
+En lenguajes como **Python (CPython)** o **Ruby (MRI)**, existe un personaje muy estricto, el **GIL (Global Interpreter Lock)** o **GVL (Global VM Lock)** en Ruby. 
 
-Imagina que, aunque tengas 10 cocineros, solo hay un **cucharón oficial**. Para que un cocinero ejecute cualquier instrucción del código, debe tener el cucharón. Esto garantiza que nadie corrompa la "receta" (la gestión de memoria del intérprete), pero impide el **paralelismo real** en tareas pesadas.
+Imagina que, aunque tengas 10 cocineros, solo hay un **cucharón oficial**. Para que un cocinero ejecute cualquier instrucción del *bytecode*, debe tener el cucharón. Esto garantiza que nadie corrompa la gestión de memoria del intérprete, pero impide el **paralelismo real** en tareas pesadas de CPU dentro del mismo proceso. Es importante notar que implementaciones como **JRuby** o **Jython** no tienen esta limitación, y que las extensiones en C pueden liberar el GIL para ejecutar trabajo en paralelo.
 
-* **CPU-Bound (Cálculos pesados):** Como picar 50kg de carne. El GIL hace que los cocineros se peleen por el cucharón, haciendo que el multithreading sea inútil. Aquí es donde brilla el **Multiprocessing**.
+* **CPU-Bound (Cálculos pesados):** Como picar 50kg de carne. El GIL impide que varios hilos ejecuten código Python a la vez, haciendo que el multithreading sea poco útil aquí. La solución es el **Multiprocessing**.
 * **I/O-Bound (Espera de red/disco):** Como esperar a que el horno suene. El cocinero suelta el cucharón mientras espera, permitiendo que otro avance. Aquí el **Multithreading** o el **Async I/O** son extremadamente eficientes.
 
 {{< figure src="https://static-assets.codecademy.com/understanding-gil-in-python/GIL-behaviour.png" title="Figura 2: Funcionamiento del Global Interpreter Lock (GIL)." >}}
@@ -57,7 +57,8 @@ Para evitar que dos cocineros metan la mano en la misma olla, usamos un **Mutex 
 Sin embargo, si no tenemos cuidado, podemos caer en un **Deadlock** (Bloqueo mutuo):
 * El Cocinero A tiene la llave del *Horno* y espera la del *Cuchillo*.
 * El Cocinero B tiene la llave del *Cuchillo* y espera la del *Horno*.
-Ninguno se mueve. El programa se congela.
+
+Ninguno se mueve y el programa se congela. Para evitar esto, las buenas prácticas dictan **ordenar siempre la adquisición de locks** (adquirir siempre Horno -> Cuchillo), usar **timeouts** para no esperar eternamente, o simplemente evitar los cerrojos anidados siempre que sea posible.
 
 {{< figure src="https://miro.medium.com/v2/resize:fit:1200/1*nT6M9U44up3hYJoQjohC3A.png" title="Figura 4: El problema del bloqueo mutuo (Deadlock)." >}}
 
@@ -81,6 +82,7 @@ atomic_int platos_servidos = 0;
 void servir_plato() {
     // Indivisible a nivel de hardware. 
     // Máxima velocidad sin necesidad de cerrojos (locks).
+    // (Nota: C11 permite especificar 'memory_order' para un control aún más fino).
     atomic_fetch_add(&platos_servidos, 1);
 }
 ```

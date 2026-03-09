@@ -20,19 +20,19 @@ Today we are going to explore the world of **concurrency** and **parallelism**. 
 
 ### Hardware Threads vs. Software Threads
 
-Imagine that **Hardware Threads** are the **physical cooks** you have in the kitchen (the logical cores of your CPU). If your processor has 8 threads, you have 8 pairs of hands working.
+Imagine that **Hardware Threads** are the **physical cooks** you have in the kitchen (the logical cores of your CPU). It is important to distinguish between a *physical core* (the actual computing unit) and a *logical thread* (technologies like SMT or Hyperthreading that make one core look like two to the system). If your processor has 8 threads, you have 8 pairs of hands working.
 
-On the other hand, **Software Threads** are the **tasks written on tickets (comandas)**. A single cook (hardware thread) can be in charge of several tickets (software threads). The operating system performs a **Context Switch**: the cook stops chopping onions for a second to stir the soup, and then goes back to the onions. To the customer, it looks like they are doing both things at once, but in reality, they are rapidly alternating between them (magical, right?).
+On the other hand, **Software Threads** are the **tasks written on tickets (comandas)**. In most modern systems, these are Kernel threads (or mapped to them). A single cook (hardware thread) can be in charge of several tickets (software threads). The **Scheduler** performed by the operating system makes a **Context Switch**: the cook stops chopping onions for a second to stir the soup, and then goes back to the onions. To the customer, it looks like they are doing both things at once, but in reality, they are rapidly alternating between them.
 
 {{< figure src="https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/images/Chapter4/4_01_ThreadDiagram.jpg" title="Figure 1: Diagram of threads and processes in the operating system." >}}
 
 ### The GIL and the GVL
 
-In languages like **Python (CPython)** or **Ruby (MRI)**, there is a very strict character: the **GIL (Global Interpreter Lock)**.
+In languages like **Python (CPython)** or **Ruby (MRI)**, there is a very strict character: the **GIL (Global Interpreter Lock)**, often called **GVL (Global VM Lock)** in Ruby.
 
-Imagine that, even if you have 10 cooks, there is only one **official ladle**. For a cook to execute any instruction from the code, they must have the ladle. This ensures that no one corrupts the "recipe" (the interpreter's memory management), but it prevents **true parallelism** in heavy tasks.
+Imagine that, even if you have 10 cooks, there is only one **official ladle**. For a cook to execute any instruction from the *bytecode*, they must have the ladle. This ensures that no one corrupts the interpreter's memory management, but it prevents **true parallelism** for heavy CPU tasks within the same process. It's worth noting that implementations like **JRuby** or **Jython** do not have this limitation, and C extensions can release the GIL to execute work in parallel.
 
-* **CPU-Bound (Heavy calculations):** Like chopping 50kg of meat. The GIL causes the cooks to fight over the ladle, making multithreading useless. This is where **Multiprocessing** shines.
+* **CPU-Bound (Heavy calculations):** Like chopping 50kg of meat. The GIL prevents multiple threads from executing Python code at once, making multithreading less useful here. The solution is **Multiprocessing**.
 * **I/O-Bound (Waiting for network/disk):** Like waiting for the oven to beep. The cook releases the ladle while waiting, allowing someone else to proceed. Here, **Multithreading** or **Async I/O** are extremely efficient.
 
 {{< figure src="https://static-assets.codecademy.com/understanding-gil-in-python/GIL-behaviour.png" title="Figure 2: Operation of the Global Interpreter Lock (GIL)." >}}
@@ -57,7 +57,8 @@ To prevent two cooks from putting their hands in the same pot, we use a **Mutex 
 However, if we are not careful, we can fall into a **Deadlock**:
 * Cook A has the key to the *Oven* and is waiting for the *Knife*.
 * Cook B has the key to the *Knife* and is waiting for the *Oven*.
-No one moves. The program freezes.
+
+Neither moves, and the program freezes. To avoid this, best practices include **always ordering lock acquisition** (always acquire Oven -> Knife), using **timeouts** to avoid waiting forever, or simply avoiding nested locks whenever possible.
 
 {{< figure src="https://miro.medium.com/v2/resize:fit:1200/1*nT6M9U44up3hYJoQjohC3A.png" title="Figure 4: The problem of mutual blocking (Deadlock)." >}}
 
@@ -81,6 +82,7 @@ atomic_int dishes_served = 0;
 void serve_dish() {
     // Indivisible at the hardware level.
     // Maximum speed without the need for locks.
+    // (Note: C11 allows specifying 'memory_order' for even finer control).
     atomic_fetch_add(&dishes_served, 1);
 }
 ```
