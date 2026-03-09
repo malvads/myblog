@@ -2,7 +2,7 @@
 title = 'Entiende de una vez por todas el multithreading y multiprocessing'
 description = '¿Hilos o Procesos? Entiende cómo escalar tu software.'
 tags = ['Concurrencia', 'Programación', 'Sistemas Operativos']
-date = '2026-03-08T16:00:00.000Z'
+date = '2026-03-09T00:00:00.000Z'
 draft = false
 categories = ['Desarrollo de Software']
 series = []

@@ -12,7 +12,7 @@ summaryLength = 70
 hasCJKLanguage = true
 theme = ["kernel90s"]
 title = "Malvads Engineering Blog"
-mainsections = ["posts"]             
+
 
 [pagination]
 pagerSize = 20
@@ -32,6 +32,7 @@ minifyOutput = true
 home = ["HTML", "RSS", "JSON"]
 
 [params]
+mainsections = ["posts"]
 displayFullLangName = true
 defaultTheme = "auto"
 keywords = ["Miguel Alvarez", "Blog", "Low-Level Programming", "Systems", "Reverse Engineering", "Algorithms", "AI"]

@@ -2,7 +2,7 @@
 title = 'Understanding Multithreading and Multiprocessing Once and for All'
 description = 'Threads or Processes? Understand how to scale your software.'
 tags = ['Concurrency', 'Programming', 'Operating Systems']
-date = '2026-03-08T16:00:00.000Z'
+date = '2026-03-09T00:00:00.000Z'
 draft = false
 categories = ['Software Development']
 series = []
