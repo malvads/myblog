@@ -61,6 +61,30 @@ No one moves. The program freezes.
 
 {{< figure src="https://miro.medium.com/v2/resize:fit:1200/1*nT6M9U44up3hYJoQjohC3A.png" title="Figure 4: The problem of mutual blocking (Deadlock)." >}}
 
+### Semaphores: The Capacity Controller
+
+If a Mutex is a key for a single office, a **Semaphore** is a security gate that allows a limited number of threads to pass (say, 3 threads at a time). It is the perfect tool when you have a shared resource that can handle multiple connections, but not infinite ones (like a database connection pool).
+
+{{< figure src="https://cdn.codegym.cc/images/article/edf6d093-dd70-41a0-8e8d-b987e687c089/800.webp" title="Figure 5: The semaphore allowing controlled access to multiple threads." >}}
+
+### Atomic Operations: The Art of Not Blinking
+
+Sometimes, locking an entire section of code with a Mutex is like using a sledgehammer to crack a nut. An **Atomic Operation** is a low-level instruction that the CPU guarantees will execute indivisibly. To the rest of the system, the operation happens instantaneously or not at all; there are no intermediate states.
+
+It is the purest and fastest way to avoid Race Conditions in counters or flags, as there is no context switch or heavy waiting. In **C (C11)**, this becomes extremely powerful:
+
+```c
+#include <stdatomic.h>
+
+atomic_int dishes_served = 0;
+
+void serve_dish() {
+    // Indivisible at the hardware level.
+    // Maximum speed without the need for locks.
+    atomic_fetch_add(&dishes_served, 1);
+}
+```
+
 ### Shared Kitchen or Independent Restaurants?
 
 This is where you decide your technical architecture:
@@ -68,7 +92,7 @@ This is where you decide your technical architecture:
 * **Multithreading (Threads):** It's like having all the cooks in the **same room sharing the same pantry (Shared Memory)**. It's lightweight and fast to communicate, but requires many locks (Mutex) to avoid ruining the data.
 * **Multiprocessing (Processes):** It's like opening **separate restaurants**. Each has its own pantry (Memory Isolation). If one restaurant burns down, the other keeps running. There is no GIL to stop them, but communicating between them is more expensive (requires **IPC - Inter-Process Communication** like Pipes or Sockets).
 
-{{< figure src="https://miro.medium.com/1*F8ckVaR__PlBssnf-mn76A.png" title="Figure 5: Visual difference between threads (shared memory) and processes (isolated memory)." >}}
+{{< figure src="https://miro.medium.com/1*F8ckVaR__PlBssnf-mn76A.png" title="Figure 6: Visual difference between threads (shared memory) and processes (isolated memory)." >}}
 
 ### Threading vs Multiprocessing
 

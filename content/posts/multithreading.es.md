@@ -61,6 +61,30 @@ Ninguno se mueve. El programa se congela.
 
 {{< figure src="https://miro.medium.com/v2/resize:fit:1200/1*nT6M9U44up3hYJoQjohC3A.png" title="Figura 4: El problema del bloqueo mutuo (Deadlock)." >}}
 
+### Semáforos: El controlador de aforo
+
+Si un Mutex es una llave para una sola oficina, un **Semáforo** es una garita de seguridad que permite el paso a un número limitado de hilos (digamos, 3 hilos a la vez). Es la herramienta perfecta cuando tienes un recurso compartido que puede manejar varias conexiones, pero no infinitas (como un pool de conexiones a una base de datos).
+
+{{< figure src="https://cdn.codegym.cc/images/article/edf6d093-dd70-41a0-8e8d-b987e687c089/800.webp" title="Figura 5: El semáforo permitiendo el acceso controlado a múltiples hilos." >}}
+
+### Operaciones Atómicas: El arte de no parpadear
+
+A veces, bloquear todo un tramo de código con un Mutex es como matar moscas a cañonazos. Una **Operación Atómica** es una instrucción de tan bajo nivel que la CPU garantiza que se ejecute de forma indivisible. Para el resto del sistema, la operación sucede instantáneamente o no sucede en absoluto; no hay estados intermedios.
+
+Es la forma más pura y rápida de evitar Race Conditions en contadores o banderas, ya que no hay "context switch" ni esperas pesadas. En **C (C11)**, esto se vuelve extremadamente potente:
+
+```c
+#include <stdatomic.h>
+
+atomic_int platos_servidos = 0;
+
+void servir_plato() {
+    // Indivisible a nivel de hardware. 
+    // Máxima velocidad sin necesidad de cerrojos (locks).
+    atomic_fetch_add(&platos_servidos, 1);
+}
+```
+
 ### ¿Cocina compartida o Restaurantes independientes?
 
 Aquí es donde decides tu arquitectura técnica:
@@ -68,7 +92,7 @@ Aquí es donde decides tu arquitectura técnica:
 * **Multithreading (Hilos):** Es como tener a todos los cocineros en la **misma habitación compartiendo la misma despensa (Shared Memory)**. Es ligero y rápido para comunicarse, pero requiere muchos cerrojos (Mutex) para no arruinar los datos.
 * **Multiprocessing (Procesos):** Es como abrir **restaurantes separados**. Cada uno tiene su propia despensa (Memory Isolation). Si un restaurante se quema, el otro sigue funcionando. No hay GIL que los detenga, pero comunicarse entre ellos es más costoso (requiere **IPC - Inter-Process Communication** como Pipes o Sockets).
 
-{{< figure src="https://miro.medium.com/1*F8ckVaR__PlBssnf-mn76A.png" title="Figura 5: Diferencia visual entre hilos (memoria compartida) y procesos (memoria aislada)." >}}
+{{< figure src="https://miro.medium.com/1*F8ckVaR__PlBssnf-mn76A.png" title="Figura 6: Diferencia visual entre hilos (memoria compartida) y procesos (memoria aislada)." >}}
 
 ### Threading vs Multiprocessing
 
