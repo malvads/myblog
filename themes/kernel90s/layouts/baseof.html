@@ -8,7 +8,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Configuración MathJax v2 -->
+  <script>
+    window.MathJax = {
+      tex2jax: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      TeX: {
+        equationNumbers: { autoNumber: "AMS" }
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS_CHTML"></script>
+
   <style>
     body {
       font-family: 'IBM Plex Mono', monospace;
@@ -160,7 +176,6 @@
       font-style: italic;
     }
 
-    /* Figure styling for centering and size consistency */
     figure {
       margin: 40px auto;
       text-align: center;
@@ -186,7 +201,6 @@
       font-style: italic;
     }
 
-    /* Responsive adjustments for phones */
     @media (max-width: 768px) {
       body {
         font-size: 18px;
@@ -248,18 +262,6 @@
     </div>
   </div>
 
-  <script>
-    (function () {
-      const prefLang = localStorage.getItem('pref-lang');
-      const currentPath = window.location.pathname;
-      const isRoot = currentPath === '/' || currentPath === '/index.html';
-
-      if (isRoot && prefLang) {
-        window.location.href = '/' + prefLang + '/';
-      }
-    })();
-  </script>
-
   <main id="content">
     {{ block "main" . }}{{ end }}
   </main>
@@ -278,6 +280,55 @@
     </div>
     &copy; {{ now.Year }} {{ .Site.Params.author }}
   </footer>
+
+  <!-- Script funcional MathJax para todos los <p> existentes y dinámicos -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Render inicial
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+
+      // Observador de cambios en el DOM
+      let typesetTimer = null;
+      const debounceDelay = 60; // ms
+
+      const observer = new MutationObserver(mutations => {
+        let found = false;
+        for (const mut of mutations) {
+          for (const node of mut.addedNodes) {
+            if (node.nodeType !== 1) continue;
+            if (node.matches && node.matches('p')) { found = true; break; }
+            if (node.querySelector && node.querySelector('p')) { found = true; break; }
+          }
+          if (found) break;
+        }
+
+        if (found) {
+          clearTimeout(typesetTimer);
+          typesetTimer = setTimeout(() => {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+          }, debounceDelay);
+        }
+      });
+
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      // Función global opcional para re-render manual
+      window.renderizarParrafos = function () {
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+      };
+    });
+  </script>
+
+  <script>
+    (function () {
+      const prefLang = localStorage.getItem('pref-lang');
+      const currentPath = window.location.pathname;
+      const isRoot = currentPath === '/' || currentPath === '/index.html';
+      if (isRoot && prefLang) {
+        window.location.href = '/' + prefLang + '/';
+      }
+    })();
+  </script>
 
 </body>
 

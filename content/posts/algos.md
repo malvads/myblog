@@ -26,8 +26,6 @@ Asymptotic notation is a mathematical language used in computer science to descr
 
 ## Algorithmic Complexity: Big O, Big Omega, and Big Theta
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/8/89/BigOnotationfunctionapprox.svg" title="Figure 2: Graphical representation of Big O. The function f(x) is upper-bounded by g(x). Source: Wikimedia Commons." >}}
-
 ### Big O
 
 It is used to describe the worst-case scenario. It is a guarantee that the algorithm will not take longer than a certain amount.
@@ -53,7 +51,7 @@ In modern software engineering, we often face the trade-off between space and ti
 
 ## Time Complexity
 
-{{< figure src="https://static.afteracademy.com/images/comparison-of-sorting-algorithms-compare1-18082c14f960abf3.png" title="Figure 4: Comparison of the number of operations across different sorting algorithms." >}}
+{{< figure src="https://static.afteracademy.com/images/comparison-of-sorting-algorithms-compare1-18082c14f960abf3.png" title="Figure 3: Comparison of the number of operations across different sorting algorithms." >}}
 
 Time Complexity defines the amount of time an algorithm requires to complete as a function of the input length $n$. It is essential to understand that in asymptotic analysis we do not measure seconds or microseconds, as those depend on the processor and architecture; instead, we quantify the number of elementary operations (such as assignments, comparisons, and jumps) that the algorithm performs.
 
@@ -61,7 +59,7 @@ When analyzing time, we focus on how this operation count scales as $n$ grows ex
 
 ## Algorithm Analysis with Examples
 
-{{< figure src="https://carolinacheuquiante.files.wordpress.com/2012/06/imagen1.png?w=300&h=201" title="Example of a comparative analysis of sorting algorithms." >}}
+{{< figure src="https://carolinacheuquiante.files.wordpress.com/2012/06/imagen1.png?w=300&h=201" title="Figure 4: Example of a comparative analysis of sorting algorithms." >}}
 
 Algorithm Analysis is the practical application of asymptotic notation to evaluate and predict the performance of a block of code. This methodical process consists of abstracting the source code into elementary operations (assignments, comparisons, arithmetic operations) and identifying how these scale as a function of the data input ($n$).
 
@@ -71,7 +69,7 @@ The following examples are simple — you should know that there are many more a
 
 ### Linear Search
 
-{{< figure src="https://d18l82el6cdm1i.cloudfront.net/uploads/bePceUMnSG-binary_search_gif.gif" title="Comparison between Linear Search and Binary Search." >}}
+{{< figure src="https://d18l82el6cdm1i.cloudfront.net/uploads/bePceUMnSG-binary_search_gif.gif" title="Figure 5: Comparison between Linear Search and Binary Search." >}}
 
 #### Time Complexity
 In the worst case (the target is at the end or doesn't exist), the loop will iterate exactly $n$ times, where $n$ is the size of the list. Therefore, the execution time is strictly proportional to the input, resulting in $O(n)$.
@@ -91,7 +89,7 @@ The sorting is done *in-place* (on the original list itself), requiring only ext
 
 ### Binary Search
 
-{{< figure src="data:image/png;base64,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" title="Step-by-step depiction of Binary Search." >}}
+{{< figure src="https://d18l82el6cdm1i.cloudfront.net/uploads/bePceUMnSG-binary_search_gif.gif" title="Figure 7: Step-by-step depiction of Binary Search. Source: Wikimedia Commons." >}}
 
 #### Time Complexity
 Unlike linear search, binary search divides the search space in half with each iteration (requiring the list to be previously sorted). This successive division causes the operations to grow logarithmically relative to the input. Its complexity is very efficient: $O(\log n)$.
@@ -101,7 +99,7 @@ If implemented iteratively, only pointers for the start, end, and midpoint are n
 
 ### Merge Sort
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Merge_sort_algorithm_diagram.svg" title="Diagram of the Merge Sort algorithm. Source: Wikimedia Commons." >}}
+{{< figure src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Merge_sort_algorithm_diagram.svg" title="Figure 8: Diagram of the Merge Sort algorithm. Source: Wikimedia Commons." >}}
 
 #### Time Complexity
 Merge Sort uses the "Divide and Conquer" paradigm. It repeatedly divides the list into halves (which takes logarithmic time $\log n$) and then merges those halves by sorting them (which takes linear time $n$). The combination of both steps gives us a time complexity of $O(n \log n)$, being much more efficient than Bubble Sort for large volumes of data.
@@ -111,21 +109,21 @@ Unlike Bubble Sort, Merge Sort does not sort *in-place*. It needs to create temp
 
 ## Advanced Data Structures and Algorithms
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Hash_table_average_insertion_time.png" title="Average insertion time in a Hash Table." >}}
+{{< figure src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Hash_table_average_insertion_time.png" title="Figure 9: Average insertion time in a Hash Table. Source: Wikimedia Commons." >}}
 
 Not all problems are solved by iterating over lists. In real-world software engineering, we face scenarios where we need to access data almost instantly, maintain ordered collections efficiently, or model complex relationships between entities. For each of these cases, there are specialized data structures that we must know.
 
 **Hash Tables** (known as dictionaries in Python or HashMaps in Java) allow us to associate keys with values and access them in practically constant time, $O(1)$. They are the reason why a search in an indexed database is almost instantaneous, regardless of whether it has a hundred records or a hundred million.
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/d/da/Binary_search_tree.svg" title="Example of a Binary Search Tree (BST)." >}}
+{{< figure src="https://upload.wikimedia.org/wikipedia/commons/d/da/Binary_search_tree.svg" title="Figure 10: Example of a Binary Search Tree (BST). Source: Wikimedia Commons." >}}
 
 **Trees** are hierarchical structures that keep data organized so that search, insertion, and deletion operations are performed in $O(\log n)$. Variants like AVL or Red-Black trees self-balance to guarantee that performance even in the worst-case scenarios. They are the foundation of database indexes and your operating system's file system.
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Directed.svg" title="Example of a Directed Graph." >}}
+{{< figure src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Directed.svg" title="Figure 11: Example of a Directed Graph. Source: Wikimedia Commons." >}}
 
 **Graphs** allow modeling relationships between entities — something that lists and trees cannot easily represent. Every time you use GPS to find the shortest route, browse recommendations on a social network, or your package travels through the network to reach you, there is a graph algorithm (like Dijkstra, BFS, or DFS) working behind the scenes.
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/QUEUE_VS_STACK.svg/3840px-QUEUE_VS_STACK.svg.png" title="Comparison between a Queue (FIFO) and a Stack (LIFO)." >}}
+{{< figure src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/QUEUE_VS_STACK.svg/3840px-QUEUE_VS_STACK.svg.png" title="Figure 12: Comparison between a Queue (FIFO) and a Stack (LIFO). Source: Wikimedia Commons." >}}
 
 **Queues** and **Stacks** are simpler structures, but fundamental ones. A queue (FIFO) guarantees that elements are processed in the order they arrive, like tasks in a print queue or messages in an event system. A stack (LIFO) works the other way around: the last one in is the first one out, like the "undo" history in any editor or the call stack that manages the execution of your own code.
 
