@@ -140,4 +140,5 @@ El futuro de la inteligencia artificial no pasa únicamente por crear modelos mo
 
 La IA dejará de ser una simple "caja de texto" a la que consultamos, para transformarse en una capa computacional invisible, interactuando con nuestros entornos a través de estándares abiertos como MCP y orquestada bajo las rígidas reglas del Spec Driven Development. En este nuevo horizonte, el software predictivo no sustituirá al software determinista, sino que se integrará en él. Es por ello que la figura del ingeniero, el control de versiones y el código estructurado serán más importantes que nunca para dar orden, seguridad y sentido a las infinitas posibilidades generativas.
 
-https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmOIg6sdauB162o5ccCmX_6vCb1kkNiViLTw&s
+{{< figure src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmOIg6sdauB162o5ccCmX_6vCb1kkNiViLTw&s" title="Figure 14: El futuro" >}}
+
