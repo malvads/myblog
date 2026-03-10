@@ -2,7 +2,7 @@
 title = 'Understanding the Fundamentals and Principles of Modern AI through LLMs, SLMs, MCPs, RAG, GraphDBs, Intelligent Agent Development, and Spec Driven Development'
 description = 'An overview of the key concepts behind large language models and their applications.'
 tags = ['AI', 'LLM', 'MCP', 'RAG', 'Agents', 'Spec Driven Development']
-date = '2026-03-08T16:00:00.000Z'
+date = '2026-03-09T16:00:00.000Z'
 draft = false
 categories = ['AI']
 series = []

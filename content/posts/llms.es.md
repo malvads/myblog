@@ -2,7 +2,7 @@
 title = 'Entiende los fundamentos y Principios de la Inteligencia Artificial Moderna a través de LLMs, SLMs, MCPs, RAG, GraphDBs, Desarrollo de Agentes Inteligentes y Spec Driven Development'
 description = 'Una visión general de los conceptos clave detrás de los modelos de lenguaje grandes y sus aplicaciones.'
 tags = ['IA', 'LLM', 'MCP', 'RAG', 'Agentes', 'Spec Driven Development']
-date = '2026-03-08T16:00:00.000Z'
+date = '2026-03-09T16:00:00.000Z'
 draft = false
 categories = ['IA']
 series = []
