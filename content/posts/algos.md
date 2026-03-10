@@ -1,13 +1,13 @@
 +++
 title = 'Asymptotic Notation and Big O, Algorithmic Complexity'
-description = ''
-tags = []
+description = 'A practical guide to Big O, Big Omega, and Big Theta notation, time and space complexity analysis, and essential data structures every engineer should know.'
+tags = ['Algorithms', 'Big O', 'Data Structures', 'CS Fundamentals']
 date = '2026-03-10T10:20:00.000Z'
 draft = false
-categories = []
+categories = ['Engineering']
 series = []
 author = 'Miguel Alvarez'
-keywords = []
+keywords = ['Big O', 'Asymptotic Notation', 'Algorithmic Complexity', 'Data Structures', 'Time Complexity', 'Space Complexity']
 
 [cover]
 image = ""

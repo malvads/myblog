@@ -1,13 +1,13 @@
 +++
-title = 'Notación Asintotica y Big O, Complejidad Algoritmica'
-description = ''
-tags = []
+title = 'Notación Asintótica y Big O, Complejidad Algorítmica'
+description = 'Una guía práctica sobre la notación Big O, Big Omega y Big Theta, análisis de complejidad temporal y espacial, y las estructuras de datos esenciales que todo ingeniero debe conocer.'
+tags = ['Algoritmos', 'Big O', 'Estructuras de Datos', 'Fundamentos CS']
 date = '2026-03-10T10:20:00.000Z'
 draft = false
-categories = []
+categories = ['Ingeniería']
 series = []
 author = 'Miguel Alvarez'
-keywords = []
+keywords = ['Big O', 'Notación Asintótica', 'Complejidad Algorítmica', 'Estructuras de Datos', 'Complejidad Temporal', 'Complejidad Espacial']
 
 [cover]
 image = ""
