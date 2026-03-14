@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Red Hat Text', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #151515;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #CC0000 0%, #A30000 100%);
+            color: #ffffff;
+            padding: 30px 40px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px 40px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #CC0000;
+            border-bottom: 2px solid #CC0000;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section li {
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            background: #f9f9f9;
+            border-left: 3px solid #CC0000;
+            border-radius: 0 4px 4px 0;
+            font-size: 14px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .footer {
+            background: #252525;
+            color: #ffffff;
+            padding: 25px 40px;
+            font-size: 12px;
+        }
+
+        .footer p {
+            margin-bottom: 5px;
+            opacity: 0.8;
+        }
+
+        .footer .brand {
+            color: #CC0000;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://raw.githubusercontent.com/gist/lance/7dc4c5a82e3864bede7b4b34eefd131e/raw/1b0aa1e7466c983a9c9093e51c47ce5e062f866b/Logo-RedHat-A-Black-RGB.png" alt="Red Hat" style="height: 60px; margin-bottom: 15px;">
+            <h1>CertOps Weekly Status Report</h1>
+            <div class="subtitle"><b>Jinhua Li</b> • <i>Mar 02 to Mar 06</i></div>
+        </div>
+
+        <div class="content">
+            <div class="section"><h2>Partner Certification Progress with Toshiba, BBIX, VMware, and Others - Partner Certification</h2><ul><li>This week, I worked with various partners including Toshiba Global Commerce Solution, BBIX, Inc., VMware, VOLTRIQ INDIA PRIVATE LIMITED, Microsoft, IBM, and others to progress their certification pipelines. I reviewed test results for <a href="https://access.redhat.com/certops/internal/#/certification/04370892/discussion/a0aHn00000aAyMKIA0" style="color:#CC0000;text-decoration:none;">04370892</a>, <a href="https://access.redhat.com/certops/internal/#/certification/04389422/discussion/" style="color:#CC0000;text-decoration:none;">04389422</a>, <a href="https://access.redhat.com/certops/internal/#/certification/04391317/discussion/a0aHn00000aEGdpIAG" style="color:#CC0000;text-decoration:none;">04391317</a>, and <a href="https://access.redhat.com/certops/internal/#/certification/04278978/discussion/" style="color:#CC0000;text-decoration:none;">04278978</a>, provided feedback, and addressed technical issues. I also created test plans, updated product information, and collaborated with internal teams to resolve certification blockers.</li></ul></div><div class="section"><h2>Partner Assistance Progress with TrilioData, STCLAB, Chainguard, eQ Technologic, and HPE - Partner Assistance</h2><ul><li>This week, I assisted partners with their certification and onboarding needs, including TrilioData with image publication exception <a href="https://issues.redhat.com/browse/CERTOPS-867" style="color:#CC0000;text-decoration:none;">CERTOPS-867</a>, STCLAB with EPM/IPM program requirements, and Chainguard with container certification. I also helped eQ Technologic with Intellectual Property concerns and HPE with container certification submission. Additionally, I prepared for the Red Hat HK ABP and Certification on Ecosystem Catalog with IGS meeting and addressed <a href="https://issues.redhat.com/browse/CERTOPS-1990" style="color:#CC0000;text-decoration:none;">CERTOPS-1990</a>.</li></ul></div><div class="section"><h2>Advancements in CertOps Activities with Multiple Partners - Other CertOps Activities</h2><ul><li>This week, I reviewed the Storage Appliance Policy Guide <a href="https://docs.google.com/document/d/10QkjmLDMsKfAYd4agoECewOirTBuZyZT3SCj4PsVBl8/edit?tab=t.0#heading=h.6t004ycyowet" style="color:#CC0000;text-decoration:none;">PEC-1014</a> and addressed the CSI/CNF issue in the policy guide <a href="https://issues.redhat.com/browse/PEC-1041" style="color:#CC0000;text-decoration:none;">PEC-1041</a>. I also attended meetings, including a sync-up with Rob and a ZTE network certification meeting, while working on <a href="https://issues.redhat.com/browse/CERTOPS-1987" style="color:#CC0000;text-decoration:none;">CERTOPS-1987</a> and reviewing PEC-956 for Storage Appliance Hardware Certification.</li></ul></div>
+        </div>
+
+        <div class="footer">
+            <p>
+                This report was automatically generated by
+                <span class="brand">CertOps Weekly Status Report Tool</span>
+                <br>
+            </p>
+            <p>For any questions, bug reports, or issues, please contact Miguel Alvarez at <span
+                    class="brand">mialvare@redhat.com</span></p>
+            <br>
+            <p>Or for urgent issues, please contact Rajan Shah at <span class="brand">rashah@redhat.com</span></p>
+            <br>
+            <p>Red Hat CertOps</p>
+        </div>
+    </div>
+</body>
+
+</html>

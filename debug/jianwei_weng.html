@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Red Hat Text', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #151515;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #CC0000 0%, #A30000 100%);
+            color: #ffffff;
+            padding: 30px 40px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px 40px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #CC0000;
+            border-bottom: 2px solid #CC0000;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section li {
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            background: #f9f9f9;
+            border-left: 3px solid #CC0000;
+            border-radius: 0 4px 4px 0;
+            font-size: 14px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .footer {
+            background: #252525;
+            color: #ffffff;
+            padding: 25px 40px;
+            font-size: 12px;
+        }
+
+        .footer p {
+            margin-bottom: 5px;
+            opacity: 0.8;
+        }
+
+        .footer .brand {
+            color: #CC0000;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://raw.githubusercontent.com/gist/lance/7dc4c5a82e3864bede7b4b34eefd131e/raw/1b0aa1e7466c983a9c9093e51c47ce5e062f866b/Logo-RedHat-A-Black-RGB.png" alt="Red Hat" style="height: 60px; margin-bottom: 15px;">
+            <h1>CertOps Weekly Status Report</h1>
+            <div class="subtitle"><b>Jianwei Weng</b> • <i>Mar 02 to Mar 06</i></div>
+        </div>
+
+        <div class="content">
+            <div class="section"><h2>Partner Certification Progress with Multiple Vendors - Partner Certification</h2><ul><li>I worked on various partner certification requests, including Hypertechnologies, Cisco, ASUSTeK Computer Inc, Lenovo, HPE, OnLogic, MetaX, Toshiba Global Commerce Solutions, Quanta, Netweb Technologies, Microsoft, and Gigamon Inc, resolving issues and reviewing test results for RHEL 9 and 10 certifications, and created a RHAIIS 3.3 cert and kbase articles to support the certification process</li></ul></div><div class="section"><h2>Partner Assistance Progress with Dell, HPE, Lenovo, and Point72 Asset Management - Partner Assistance</h2><ul><li>This week, I worked with Dell to resolve Bluetooth test failures, discussed HPE DL360 Gen9 BM support in OCP4.20 with HPE, addressed RHEL10 certification issues with Lenovo, and provided support to Point72 Asset Management regarding AWS ec2 x8i Instance types, including reviewing cases <a href="https://gss--c.vf.force.com/apex/Case_View?sbstr=04391877" style="color:#CC0000;text-decoration:none;">04391877</a>, <a href="https://gss--c.vf.force.com/apex/Case_View?sbstr=04389987" style="color:#CC0000;text-decoration:none;">04389987</a>, <a href="https://gss--c.vf.force.com/apex/Case_View?sbstr=04390324" style="color:#CC0000;text-decoration:none;">04390324</a>, and <a href="https://gss--c.vf.force.com/apex/Case_View?sbstr=04385709" style="color:#CC0000;text-decoration:none;">04385709</a>.</li></ul></div><div class="section"><h2>Weekly progress on CertOps activities with Tommi Sohlberg, ZTE team, and internal stakeholders - Other CertOps Activities</h2><ul><li>I worked on VCSP cert process with Tommi Sohlberg, created <a href="https://issues.redhat.com/browse/CERTPX-16869" style="color:#CC0000;text-decoration:none;">CERTPX-16869</a> and reviewed <a href="https://issues.redhat.com/browse/CERTPX-16860" style="color:#CC0000;text-decoration:none;">CERTPX-16860</a>, also had a meeting with ZTE team regarding cert approaches for their self-developed network cards, and updated Django code for <a href="https://issues.redhat.com/browse/CERTOPS-1977" style="color:#CC0000;text-decoration:none;">CERTOPS-1977</a> and <a href="https://issues.redhat.com/browse/CERTOPS-1987" style="color:#CC0000;text-decoration:none;">CERTOPS-1987</a>.</li></ul></div>
+        </div>
+
+        <div class="footer">
+            <p>
+                This report was automatically generated by
+                <span class="brand">CertOps Weekly Status Report Tool</span>
+                <br>
+            </p>
+            <p>For any questions, bug reports, or issues, please contact Miguel Alvarez at <span
+                    class="brand">mialvare@redhat.com</span></p>
+            <br>
+            <p>Or for urgent issues, please contact Rajan Shah at <span class="brand">rashah@redhat.com</span></p>
+            <br>
+            <p>Red Hat CertOps</p>
+        </div>
+    </div>
+</body>
+
+</html>

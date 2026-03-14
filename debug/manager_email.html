@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Red Hat Text', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #151515;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #CC0000 0%, #A30000 100%);
+            color: #ffffff;
+            padding: 30px 40px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .greeting {
+            padding: 25px 40px;
+            background: #f9f9f9;
+            border-bottom: 1px solid #eee;
+        }
+
+        .greeting p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .content {
+            padding: 30px 40px;
+        }
+
+        .user-section {
+            margin-bottom: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .user-header {
+            background: #f5f5f5;
+            padding: 12px 20px;
+            border-bottom: 2px solid #CC0000;
+        }
+
+        .user-header h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .user-content {
+            padding: 15px 20px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .category {
+            margin-bottom: 15px;
+        }
+
+        .category h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #CC0000;
+            margin-bottom: 8px;
+        }
+
+        .category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .category li {
+            padding: 6px 10px;
+            margin-bottom: 4px;
+            background: #fafafa;
+            border-left: 2px solid #CC0000;
+            font-size: 13px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .footer {
+            background: #252525;
+            color: #ffffff;
+            padding: 25px 40px;
+            font-size: 12px;
+        }
+
+        .footer p {
+            margin-bottom: 5px;
+            opacity: 0.8;
+        }
+
+        .footer .brand {
+            color: #CC0000;
+            font-weight: 600;
+        }
+
+        .summary-card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(204, 0, 0, 0.08);
+            margin-bottom: 40px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .summary-header {
+            background: #CC0000;
+            color: #ffffff;
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .summary-body {
+            padding: 25px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .summary-item {
+            margin-bottom: 25px;
+        }
+
+        .summary-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .summary-title {
+            color: #CC0000;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .summary-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #333;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .summary-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #CC0000;
+            font-weight: bold;
+        }
+
+        .partners-pill-box {
+            display: block;
+            margin-top: 10px;
+            line-height: 2.2;
+        }
+
+        .partner-pill {
+            background: #f0f0f0;
+            color: #444;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            display: inline-block;
+            margin-right: 6px;
+            margin-bottom: 6px;
+            white-space: nowrap;
+        }
+
+        .urgent-box {
+            background: #fff8f8;
+            border: 1px solid #ffdada;
+            padding: 15px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://raw.githubusercontent.com/gist/lance/7dc4c5a82e3864bede7b4b34eefd131e/raw/1b0aa1e7466c983a9c9093e51c47ce5e062f866b/Logo-RedHat-A-Black-RGB.png" alt="Red Hat" style="height: 60px; margin-bottom: 15px;">
+            <h1>CertOps Team Weekly Status Summary</h1>
+            <div class="subtitle"><i>Mar 02 to Mar 06</i></div>
+        </div>
+
+        <div class="greeting">
+            <p>Hi <b>None</b>,</p>
+            <p>Here is the team's weekly status report summary.</p>
+        </div>
+
+        <div class="content">
+            <div class="summary-card">
+                <div class="summary-header">
+                    Team weekly highlights
+                </div>
+                <div class="summary-body">
+                    <div class="summary-item">
+    <div class="summary-title">Partner Certification</div>
+    <ul class="summary-list">
+        <li>Reviewed operator certification issues for Metax, Noname Security, and Harmonic.</li>
+        <li>Worked on partner certification with various vendors including SMC, New H3C Technologies Co., Ltd, Cisco, Broadcom, HPE, AIVRES, and Fsas Technologies, completing pass-through reviews, result reviews, and test plan creations.</li>
+        <li>Collaborated on resolving certification blockers, including a fix for the RTX 6000 Blackwell GPU issue with RHAIIS 3.2 image, now resolved with RHAIIS 3.3 image, and also referencing <a href="https://issues.redhat.com/browse/INFERENG-4441" style="color: #CC0000; text-decoration: none;">INFERENG-4441</a> for further tracking.</li>
+        <li>Worked with partners including Toshiba Global Commerce Solution, BBIX, Inc., VMware, VOLTRIQ INDIA PRIVATE LIMITED, Microsoft, IBM, and others to progress their certification pipelines.</li>
+        <li>Reviewed test results for multiple partners and provided feedback, addressed technical issues, created test plans, and updated product information.</li>
+        <li>Initiated new certifications for RICOH PFU COMPUTING Co.</li>
+        <li>Worked on certification testing with various partners including Juniper Networks, Kontran IP, Aivres Systems, Linbit USA, New H3C, Super Micro, Nokia, and Gigamon Inc.</li>
+        <li>Confirmed correct models for certification and collaborated with engineering teams to resolve issues, including <a href="https://issues.redhat.com/browse/CERTOPS-1967" style="color: #CC0000; text-decoration: none;">CERTOPS-1967</a> and <a href="https://issues.redhat.com/browse/CERTOPS-1993" style="color: #CC0000; text-decoration: none;">CERTOPS-1993</a>.</li>
+    </ul>
+</div>
+
+<div class="summary-item">
+    <div class="summary-title">Support Cases</div>
+    <ul class="summary-list">
+        <li>Addressed various support cases, including <a href="https://access.redhat.com/support/cases/04392923" style="color: #CC0000; text-decoration: none;">04392923</a>, <a href="https://access.redhat.com/certops/internal/#/certification/04380296/overview" style="color: #CC0000; text-decoration: none;">04380296</a>, and <a href="https://access.redhat.com/certops/internal/#/certification/04390060/overview" style="color: #CC0000; text-decoration: none;">04390060</a>, providing solutions to partners' technical issues.</li>
+    </ul>
+</div>
+
+<div class="summary-item">
+    <div class="summary-title">Partner Engagement</div>
+    <ul class="summary-list">
+        <li>Engaged with Netapp through the sc-cnv-netapp slack channel to facilitate their image certification process.</li>
+        <li>Assisted various partners, including The University Of Queensland, Bank Of New York, Point72 Asset Management, L.P, LINUXGUARD LTD, ADVANCED BUSINESS SOLUTIONS - ABS SH.P.K., and TOTAL, addressing their questions and concerns about virt support on RHEL, openshift dedicated, and usage of uncertified hardware.</li>
+        <li>Collaborated with internal teams like anaconda to provide accurate information and resolve cases.</li>
+    </ul>
+</div>
+
+<div class="summary-item">
+    <div class="summary-title">Ad Hoc Services</div>
+    <ul class="summary-list">
+        <li>Provided ad-hoc services to partners, including resolving queries on virt support, openshift dedicated, and usage of uncertified hardware.</li>
+        <li>Assisted partners with image publication exceptions, EPM/IPM program requirements, and container certification submissions.</li>
+    </ul>
+</div>
+
+<div class="summary-item">
+    <div class="summary-title">Mindshare</div>
+    <ul class="summary-list">
+        <li>Trained the akira model with new USB2/3/3.2 logic to enhance accuracy and improve certification operations.</li>
+        <li>Explored tinyclaw and Kiro, verified JIRA PEC-100 changes, updated rhdoc-to-md, and researched EasyML for Agent.</li>
+        <li>Attended meetings, including a sync-up with Rob and a ZTE network certification meeting, to stay updated on certification processes and best practices.</li>
+    </ul>
+</div>
+                </div>
+            </div>
+
+            <div style="border-top: 2px solid #CC0000; padding: 20px 0; margin-bottom: 10px;">
+                <h2 style="font-size: 20px; color: #151515;">Individual Status Reports</h2>
+            </div>
+
+            <div class="user-section"><div class="user-header"><h2>Abhishek Tiwary</h2></div><div class="user-content"><div class="category"><h3>Partner Certification Progress with HPE, Lenovo, and Multiple Partners - Partner Certification</h3><ul><li>This week, I worked on partner certification with HPE, Lenovo, Syseleven, Ixsystem, Gigamon, Linbit, Solidigm, and Vastdata, focusing on resolving certification issues, reviewing test results, and debugging failures, including [04109161], [04352850], and [04385351], and also published certification results for Ixsystem and Gigamon.</li></ul></div><div class="category"><h3>Progress on Partner Assistance with STCLab, Mariadb, and Catalogic Software - Partner Assistance</h3><ul><li>During this week, I worked with partners including STCLab, Mariadb, and Catalogic Software to resolve various issues, such as providing steps to contact EPM, approving exceptions for the tzdata package, and debugging operator issues, I also collaborated with partners like Axis, Netapp, Isovalent, and Syseleven on best practices and technical queries, and assisted IBM with catalog entry removal.</li></ul></div><div class="category"><h3>Progress on CertOps activities with Nokia - Other CertOps Activities</h3><ul><li>During this week, I updated the requirement for EDPP-311, investigated the Nokia component missing issue as per the request on Slack, and discussed an exception on CERTOPS-1986 with the team, ensuring progress on certification pipelines and issue resolution.</li></ul></div><div class="category"><h3>Netapp Image Certification Progress via Slack Engagement - Partner Engagement</h3><ul><li>This week, I engaged with Netapp through the sc-cnv-netapp slack channel to facilitate their image certification process, ensuring a collaborative and timely certification experience for the partner.</li></ul></div></div></div><div class="user-section"><div class="user-header"><h2>Akshay Saswadkar</h2></div><div class="user-content"><div class="category"><h3>Partner Certification Progress with Multiple Vendors - Partner Certification</h3><ul><li>I worked on partner certification with various vendors including SMC, New H3C Technologies Co., Ltd, Cisco, Broadcom, HPE, AIVRES, and Fsas Technologies, completing pass-through reviews, result reviews, and test plan creations, while also addressing issues such as expired RHPS, product name mismatches, and firmware issues, and collaborated on resolving certification blockers, including a fix for the RTX 6000 Blackwell GPU issue with RHAIIS 3.2 image, now resolved with RHAIIS 3.3 image, and also referencing <a href="https://issues.redhat.com/browse/INFERENG-4441" style="color:#CC0000;text-decoration:none;">INFERENG-4441</a> for further tracking.</li></ul></div><div class="category"><h3>New CCSP partner onboarding with Gabia Inc - Partner Assistance</h3><ul><li>This week, I worked on the new CCSP partner onboarding for Gabia Inc, addressing their specific requirements and ensuring a smooth integration process, including case [04392645].</li></ul></div><div class="category"><h3>Progress on RHCertSPA issues and certification testing - Other CertOps Activities</h3><ul><li>During this week, I filed and updated JIRA tickets, including <a href="https://issues.redhat.com/browse/CERTPX-16874" style="color:#CC0000;text-decoration:none;">CERTPX-16874</a>, <a href="https://issues.redhat.com/browse/CERTPX-16875" style="color:#CC0000;text-decoration:none;">CERTPX-16875</a>, <a href="https://issues.redhat.com/browse/CERTPX-16876" style="color:#CC0000;text-decoration:none;">CERTPX-16876</a>, and <a href="https://issues.redhat.com/browse/CERTPX-16879" style="color:#CC0000;text-decoration:none;">CERTPX-16879</a>, and collaborated with the team to address certification issues, such as the RHOSO layered cert test plan copy issue in <a href="https://issues.redhat.com/browse/CERTPX-16655" style="color:#CC0000;text-decoration:none;">CERTPX-16655</a>, and responded to the certops-prefix exception request for Cisco UCS X210c M8 | RHEL 9.2 Certification | Intel Xeon 6787P(GNR).</li></ul></div></div></div><div class="user-section"><div class="user-header"><h2>Jianwei Weng</h2></div><div class="user-content"><div class="category"><h3>Partner Certification Progress with Multiple Vendors - Partner Certification</h3><ul><li>I worked on various partner certification requests, including Hypertechnologies, Cisco, ASUSTeK Computer Inc, Lenovo, HPE, OnLogic, MetaX, Toshiba Global Commerce Solutions, Quanta, Netweb Technologies, Microsoft, and Gigamon Inc, resolving issues and reviewing test results for RHEL 9 and 10 certifications, and created a RHAIIS 3.3 cert and kbase articles to support the certification process</li></ul></div><div class="category"><h3>Partner Assistance Progress with Dell, HPE, Lenovo, and Point72 Asset Management - Partner Assistance</h3><ul><li>This week, I worked with Dell to resolve Bluetooth test failures, discussed HPE DL360 Gen9 BM support in OCP4.20 with HPE, addressed RHEL10 certification issues with Lenovo, and provided support to Point72 Asset Management regarding AWS ec2 x8i Instance types, including reviewing cases <a href="https://gss--c.vf.force.com/apex/Case_View?sbstr=04391877" style="color:#CC0000;text-decoration:none;">04391877</a>, <a href="https://gss--c.vf.force.com/apex/Case_View?sbstr=04389987" style="color:#CC0000;text-decoration:none;">04389987</a>, <a href="https://gss--c.vf.force.com/apex/Case_View?sbstr=04390324" style="color:#CC0000;text-decoration:none;">04390324</a>, and <a href="https://gss--c.vf.force.com/apex/Case_View?sbstr=04385709" style="color:#CC0000;text-decoration:none;">04385709</a>.</li></ul></div><div class="category"><h3>Weekly progress on CertOps activities with Tommi Sohlberg, ZTE team, and internal stakeholders - Other CertOps Activities</h3><ul><li>I worked on VCSP cert process with Tommi Sohlberg, created <a href="https://issues.redhat.com/browse/CERTPX-16869" style="color:#CC0000;text-decoration:none;">CERTPX-16869</a> and reviewed <a href="https://issues.redhat.com/browse/CERTPX-16860" style="color:#CC0000;text-decoration:none;">CERTPX-16860</a>, also had a meeting with ZTE team regarding cert approaches for their self-developed network cards, and updated Django code for <a href="https://issues.redhat.com/browse/CERTOPS-1977" style="color:#CC0000;text-decoration:none;">CERTOPS-1977</a> and <a href="https://issues.redhat.com/browse/CERTOPS-1987" style="color:#CC0000;text-decoration:none;">CERTOPS-1987</a>.</li></ul></div></div></div><div class="user-section"><div class="user-header"><h2>Jinhua Li</h2></div><div class="user-content"><div class="category"><h3>Partner Certification Progress with Toshiba, BBIX, VMware, and Others - Partner Certification</h3><ul><li>This week, I worked with various partners including Toshiba Global Commerce Solution, BBIX, Inc., VMware, VOLTRIQ INDIA PRIVATE LIMITED, Microsoft, IBM, and others to progress their certification pipelines. I reviewed test results for <a href="https://access.redhat.com/certops/internal/#/certification/04370892/discussion/a0aHn00000aAyMKIA0" style="color:#CC0000;text-decoration:none;">04370892</a>, <a href="https://access.redhat.com/certops/internal/#/certification/04389422/discussion/" style="color:#CC0000;text-decoration:none;">04389422</a>, <a href="https://access.redhat.com/certops/internal/#/certification/04391317/discussion/a0aHn00000aEGdpIAG" style="color:#CC0000;text-decoration:none;">04391317</a>, and <a href="https://access.redhat.com/certops/internal/#/certification/04278978/discussion/" style="color:#CC0000;text-decoration:none;">04278978</a>, provided feedback, and addressed technical issues. I also created test plans, updated product information, and collaborated with internal teams to resolve certification blockers.</li></ul></div><div class="category"><h3>Partner Assistance Progress with TrilioData, STCLAB, Chainguard, eQ Technologic, and HPE - Partner Assistance</h3><ul><li>This week, I assisted partners with their certification and onboarding needs, including TrilioData with image publication exception <a href="https://issues.redhat.com/browse/CERTOPS-867" style="color:#CC0000;text-decoration:none;">CERTOPS-867</a>, STCLAB with EPM/IPM program requirements, and Chainguard with container certification. I also helped eQ Technologic with Intellectual Property concerns and HPE with container certification submission. Additionally, I prepared for the Red Hat HK ABP and Certification on Ecosystem Catalog with IGS meeting and addressed <a href="https://issues.redhat.com/browse/CERTOPS-1990" style="color:#CC0000;text-decoration:none;">CERTOPS-1990</a>.</li></ul></div><div class="category"><h3>Advancements in CertOps Activities with Multiple Partners - Other CertOps Activities</h3><ul><li>This week, I reviewed the Storage Appliance Policy Guide <a href="https://docs.google.com/document/d/10QkjmLDMsKfAYd4agoECewOirTBuZyZT3SCj4PsVBl8/edit?tab=t.0#heading=h.6t004ycyowet" style="color:#CC0000;text-decoration:none;">PEC-1014</a> and addressed the CSI/CNF issue in the policy guide <a href="https://issues.redhat.com/browse/PEC-1041" style="color:#CC0000;text-decoration:none;">PEC-1041</a>. I also attended meetings, including a sync-up with Rob and a ZTE network certification meeting, while working on <a href="https://issues.redhat.com/browse/CERTOPS-1987" style="color:#CC0000;text-decoration:none;">CERTOPS-1987</a> and reviewing PEC-956 for Storage Appliance Hardware Certification.</li></ul></div></div></div><div class="user-section"><div class="user-header"><h2>Kenan Fejzic</h2></div><div class="user-content"><div class="category"><h3>Partner Assistance Progress with Nikhil KR, INTEL CORP, Isovalent, and HPE - Partner Assistance</h3><ul><li>This week, I assisted Nikhil KR with operator certification queries, supported INTEL CORP with OpenShift version visibility, helped Isovalent resolve image publishing issues, and addressed HPE's questions on image rebuilding and hosting, providing necessary information and resolving their cases.</li></ul></div><div class="category"><h3>Review of Alpha VEX file documentation for CertOps activities - Other CertOps Activities</h3><ul><li>I spent the week reviewing the new Alpha VEX file documentation, going through the provided guidelines at https://redhatproductsecurity.github.io/security-data-guidelines/vex-alpha/ and https://redhatproductsecurity.github.io/security-data-guidelines/vex-alpha-details/ to improve my understanding of the Security Data Guidelines.</li></ul></div></div></div><div class="user-section"><div class="user-header"><h2>Mayur Mota</h2></div><div class="user-content"><div class="category"><h3>Partner Certification Progress with Lenovo, RICOH PFU COMPUTING Co., Dell, and HP - Partner Certification</h3><ul><li>During this week, I worked on existing certifications with Lenovo, RICOH PFU COMPUTING Co., Dell, and HP, including reviewing test results, providing solutions for kernel taint issues, and requesting partners to run tests via RHcerttool, while also initiating new certifications for RICOH PFU COMPUTING Co.</li></ul></div></div></div><div class="user-section"><div class="user-header"><h2>Miguel Alvarez</h2></div><div class="user-content"><div class="category"><h3>Exploration and Progress on CertOps Activities with Various Partners and Tools - Other CertOps Activities</h3><ul><li>During this week, I explored tinyclaw and Kiro, verified JIRA PEC-100 changes, updated rhdoc-to-md, researched EasyML for Agent, and prepared for the ecosystem monthly program call, while also collaborating with Eugenio Perez Martin from the Kernel VirtIO team and fixing scripts for weekly status reports.</li></ul></div></div></div><div class="user-section"><div class="user-header"><h2>Mitul Sharma</h2></div><div class="user-content"><div class="category"><h3>Partner Certification Progress with Multiple Vendors - Partner Certification</h3><ul><li>During this week, I worked on partner certification with various vendors including Cisco, Lenovo, Lanner Electronics, HPE, and others, reviewing test results, following up on pending cases, and addressing technical issues such as kernel updates, test failures, and configuration problems, while also collaborating with internal teams to resolve blockers and improve certification workflows, including <a href="https://issues.redhat.com/browse/CERTOPS-1992" style="color:#CC0000;text-decoration:none;">CERTOPS-1992</a> for Cisco.</li></ul></div><div class="category"><h3>Advancements in CertOps Activities through AI model training - Other CertOps Activities</h3><ul><li>This week, I trained the akira model with new USB2/3/3.2 logic to enhance accuracy, focusing on improving certification operations with the goal of increased efficiency and reliability in our CertOps workflows.</li></ul></div></div></div><div class="user-section"><div class="user-header"><h2>Shreya Patil</h2></div><div class="user-content"><div class="category"><h3>Partner Certification Progress with Juniper Networks, Kontran IP, Aivres Systems, Linbit USA, New H3C, Super Micro, Nokia, and Gigamon Inc - Partner Certification</h3><ul><li>This week, I worked on certification testing with various partners including Juniper Networks, Kontran IP, Aivres Systems, Linbit USA, New H3C, Super Micro, Nokia, and Gigamon Inc. I reviewed results, checked installation guides, and collaborated with engineering teams to resolve issues, including <a href="https://issues.redhat.com/browse/CERTOPS-1967" style="color:#CC0000;text-decoration:none;">CERTOPS-1967</a> and <a href="https://issues.redhat.com/browse/CERTOPS-1993" style="color:#CC0000;text-decoration:none;">CERTOPS-1993</a>, and confirmed correct models for certification.</li></ul></div><div class="category"><h3>Progress on Other CertOps Activities with partners and internal teams - Other CertOps Activities</h3><ul><li>During this week, I checked with Servesha Dudhgaonkar on <a href="https://issues.redhat.com/browse/PEC-1013" style="color:#CC0000;text-decoration:none;">PEC-1013</a> and discussed the need for a separate section for containerized application certification on RHEL in the workflow guide. I also talked with Anas Deshmukh regarding Juniper partners' frustration over long wait times.</li></ul></div></div></div><div class="user-section"><div class="user-header"><h2>Sitaram Pednekar</h2></div><div class="user-content"><div class="category"><h3>Progress on partner certification with multiple partners including Aivres Systems, Beckhoff Automation, and Panasonic Toughbook - Partner Certification</h3><ul><li>During this week, I worked on partner certification with Aivres Systems, Beckhoff Automation, Panasonic Toughbook, and other partners, reviewing test results, addressing queries, and providing support for certification cases such as 04385944, 04387934, and 04341887, while also collaborating with internal teams to resolve technical issues and update test plans for partners like Lenovo and HP Inc.</li></ul></div></div></div><div class="user-section"><div class="user-header"><h2>Yash Soni</h2></div><div class="user-content"><div class="category"><h3>Partner Certification Progress with Vxtech, Dell, Futurex, and Catalogic Software - Partner Certification</h3><ul><li>During this week, I worked on partner certifications with Vxtech, Dell, Futurex, and Catalogic Software, including comment reviews, closing and publishing certifications, and addressing best practices requests, while also conducting result reviews for LINUXGUARD LTD, including certifications <a href="https://rhcert.connect.redhat.com/certops/#/certification/04385517/overview" style="color:#CC0000;text-decoration:none;">04385517</a>, <a href="https://rhcert.connect.redhat.com/certops/#/certification/04385113/overview" style="color:#CC0000;text-decoration:none;">04385113</a>, and <a href="https://rhcert.connect.redhat.com/certops/#/certification/04385390/overview" style="color:#CC0000;text-decoration:none;">04385390</a>, and reviewing Futurex certification <a href="https://access.redhat.com/certops/internal/#/certification/04236630/overview" style="color:#CC0000;text-decoration:none;">04236630</a> and Catalogic Software certification <a href="https://rhcert.connect.redhat.com/certops/#/certification/04391023/overview" style="color:#CC0000;text-decoration:none;">04391023</a>.</li></ul></div><div class="category"><h3>Partner Assistance Progress with Multiple Partners - Partner Assistance</h3><ul><li>This week, I assisted various partners including The University Of Queensland, Bank Of New York, Point72 Asset Management, L.P, LINUXGUARD LTD, ADVANCED BUSINESS SOLUTIONS - ABS SH.P.K., and TOTAL, addressing their questions and concerns about virt support on RHEL, openshift dedicated, and usage of uncertified hardware, while also collaborating with internal teams like anaconda to provide accurate information and resolve cases, such as <a href="https://access.redhat.com/support/cases/04392923" style="color:#CC0000;text-decoration:none;">04392923</a>, <a href="https://access.redhat.com/certops/internal/#/certification/04380296/overview" style="color:#CC0000;text-decoration:none;">04380296</a>, <a href="https://access.redhat.com/certops/internal/#/certification/04390060/overview" style="color:#CC0000;text-decoration:none;">04390060</a>, <a href="https://access.redhat.com/certops/internal/#/certification/04385709/overview" style="color:#CC0000;text-decoration:none;">04385709</a>, <a href="https://access.redhat.com/certops/internal/#/certification/04386313/overview" style="color:#CC0000;text-decoration:none;">04386313</a>, and <a href="https://rhcert.connect.redhat.com/certops/#/certification/04389844/overview" style="color:#CC0000;text-decoration:none;">04389844</a>.</li></ul></div><div class="category"><h3>Progress on Other CertOps Activities with multiple partners - Other CertOps Activities</h3><ul><li>During this week, I addressed questions about CNF PV best practices, routed inquiries to relevant slack threads, and opened RHEC-4636. I also assisted with partner certification issues, including those related to RHEL-based containers and UBI, and helped resolve certification problems for partners like Nokia, Thrivent Financial For Lutherans, Deutsche Bank AG, and TCS, by moving cases to appropriate shifts and troubleshooting component creation issues.</li></ul></div></div></div>
+        </div>
+
+        <div class="footer">
+            <p>This report was automatically generated by <span class="brand">CertOps Weekly Status Report Tool</span>
+            </p>
+            <p>For any questions, bug reports, or issues, please contact Miguel Alvarez at <span
+                    class="brand">mialvare@redhat.com</span></p>
+            <br>
+            <p>Or for urgent issues, please contact Rajan Shah at <span class="brand">rashah@redhat.com</span></p>
+            <br>
+            <p>Red Hat CertOps</p>
+        </div>
+    </div>
+</body>
+
+</html>
